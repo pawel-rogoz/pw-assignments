@@ -174,3 +174,6 @@ class Pokemon:
 
     def decrease_hp(self, delta):
       self._hp -= delta
+
+    def wczytaj(self):
+      return False
