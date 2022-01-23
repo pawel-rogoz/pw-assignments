@@ -3,38 +3,46 @@ from pokemon import Pokemon
 
 def load_from_csv(file_handle):
     pokemons = []
-    with open(file_handle, 'r') as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            abilities = row['abilities']
-            attack = row['attack']
-            base_egg_steps = row['base_egg_steps']
-            base_happiness = row['base_happiness']
-            base_total = row['base_total']
-            capture_rate = row['capture_rate']
-            classfication = row['classfication']
-            defense = row['defense']
-            experience_growth = row['experience_growth']
-            height_m = row['height_m']
-            hp = row['hp']
-            japanese_name = row['japanese_name']
-            name = row['name']
-            percentage_male = row['percentage_male']
-            pokedex_number = row['pokedex_number']
-            sp_attack = row['sp_attack']
-            sp_defense = row['sp_defense']
-            speed = row['speed']
-            type1 = row['type1']
-            type2 = row['type2']
-            weight_kg = row['weight_kg']
-            generation = row['generation']
-            is_legendary = row['is_legendary']
-            #zamiast konstruktora zrobic settery
-            pokemon = Pokemon(abilities, against_bug, against_dark, against_dragon, against_electric, against_fairy, against_fight,
-                            against_fire, against_flying, against_ghost, against_grass, against_ground, against_ice, against_normal,
-                            against_poison, against_psychic, against_rock, against_steel, against_water, attack, base_egg_steps,
-                            base_happiness, base_total, capture_rate, classfication, defense, experience_growth, height_m, hp,
-                            japanese_name, name, percentage_male, pokedex_number, sp_attack, sp_defense, speed, type1, type2, weight_kg,
-                            generation, is_legendary)
+    with open(file_handle, 'r', encoding="utf-8") as csvfile:
+        reader = csv.reader(csvfile)
+        header = next(csvfile)
+        counter = 0
+        for line in reader:
+            list_of_abilities = []
+            attributes = []
+            for element in line:
+                if '[' in element and ']' in element:
+                    element = element.replace("'",'')
+                    element = element.replace(' ','')
+                    element = element.replace('[','')
+                    element = element.replace(']','')
+                    list_of_abilities.append(element)
+                elif '[' in element:
+                    counter = 1
+                    element = element.replace("'",'')
+                    element = element.replace(' ','')
+                    element = element.replace('[','')
+                    list_of_abilities.append(element)
+                elif ']' in element:
+                    element = element.replace(' ','')
+                    element = element.replace("'",'')
+                    counter = 0
+                    element = element.replace(']','')
+                    list_of_abilities.append(element)
+                elif counter == 1:
+                    element = element.replace("'",'')
+                    element = element.replace(' ','')
+                    list_of_abilities.append(element)
+                elif counter == 0:
+                    attributes.append(element)
+            abilities = list_of_abilities
+            against_normal = float(attributes[12])
+            attack = int(attributes[18])
+            defense = int(attributes[24])
+            hp = int(attributes[27])
+            name = str(attributes[29])
+            sp_attack = int(attributes[32])
+            sp_defense = int(attributes[33])
+            pokemon = Pokemon(abilities, against_normal, attack, defense, hp, name, sp_attack, sp_defense)
             pokemons.append(pokemon)
     return pokemons
