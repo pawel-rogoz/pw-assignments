@@ -14,8 +14,17 @@ class Game:
         self._pokemons = self.select_random_pokemons('pokemons.csv', 20)
         self._pokemons_dict = {pokemon.name():pokemon for pokemon in self._pokemons}
 
+    def pokemons_dict(self):
+        return self._pokemons_dict
+
     def pokemons(self):
         return self._pokemons
+
+    def current_player(self):
+        return self._current_player
+
+    def against_player(self):
+        return self._against_player
 
     def play(self):
         os.system('cls' if os.name == 'nt' else 'clear')
