@@ -36,3 +36,6 @@ class Pokemon:
     def increase_defense(self, percent):
       self._defense = int(self._defense * (1+percent/100))
 
+    def decrease_hp(self, delta):
+      self._hp -= delta
+
