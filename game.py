@@ -35,6 +35,11 @@ class Game:
             current = against
             against = temp
 
+    def swith_current_player(self):
+        temp = self._current_player
+        self._current_player = self._against_player
+        self._against_player = temp
+
     def choose_pokemon(self, player:Player):
         word = ''
         id = 1
