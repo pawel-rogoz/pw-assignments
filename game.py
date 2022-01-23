@@ -8,19 +8,13 @@ class NoPokemonsError(Exception):
 
 class Game:
     def __init__(self, first_player:Player, second_player:Player):
-        self._first_player = first_player
-        self._second_player = second_player
-        self._pokemons = self.draw_pokemons('pokemons.csv')
+        self._current_player = first_player
+        self._against_player = second_player
+        self._pokemons = self.select_random_pokemons('pokemons.csv', 20)
+        self._pokemons_dict = {pokemon.name():pokemon for pokemon in self._pokemons}
 
     def pokemons(self):
         return self._pokemons
-
-    # def pokemons_names(self):
-    #     return {pokemon.name():pokemon for pokemon in self.pokemons()}
-
-    # def pokemons_numbers(self):
-    #     pokemons_names
-    #     for number in len(self.pokemons()):          
 
     def change_first_player(self, player):
         self.first_player = player
