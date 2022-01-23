@@ -19,4 +19,9 @@ class Player:
             if element == pokemon:
                 self._pokemons.remove(element)
 
+    def has_alive_pokemons(self):
+        for pokemon in self.pokemons():
+            if pokemon.is_alive():
+                return True
+        return False
 
