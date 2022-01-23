@@ -32,16 +32,16 @@ class Game:
         os.system('cls' if os.name == 'nt' else 'clear')
         print(f'Battle: {self.current_player().name()} vs {self.against_player().name()}\n')
 
-        self.choose_pokemons(self._current_player)
-        self.choose_pokemons(self._against_player)
-        self.choose_pokemon(self._first_player)
-        self.choose_pokemon(self._second_player)
-
+        self.select_pokemons(self._current_player)
+        self.select_pokemons(self._against_player)
 
         while self.current_player().has_alive_pokemons(): #czy current ma pokemony z hp>0
             self.round()
             self.select_new_pokemon_if_not_alive()
             self.swith_current_player()
+
+        winner = self.against_player()
+        print(f'Congratulations {winner.name()}. You beat {self.current_player().name()}')
 
     def trap():
         time.sleep(2)
