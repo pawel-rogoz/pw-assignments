@@ -14,3 +14,9 @@ class Player:
     def clear_pokemons(self):
         self._pokemons = []
 
+    def remove_pokemon(self, pokemon):
+        for element in self._pokemons:
+            if element == pokemon:
+                self._pokemons.remove(element)
+
+
