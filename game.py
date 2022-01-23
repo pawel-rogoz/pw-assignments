@@ -4,6 +4,7 @@ from pokemon import Pokemon
 from random import sample
 import os
 import random
+import time
 
 class NotEnoughPokemonsError(Exception):
     pass
@@ -42,19 +43,14 @@ class Game:
             self.select_new_pokemon_if_not_alive()
             self.swith_current_player()
 
+    def trap():
+        time.sleep(2)
+        os.system('cls' if os.name == 'nt' else 'clear')
+
     def swith_current_player(self):
         temp = self._current_player
         self._current_player = self._against_player
         self._against_player = temp
-
-    def choose_pokemon(self, player:Player):
-        word = ''
-        id = 1
-        for pokemon in player.pokemons():
-            word += f'\n{id}. {pokemon.name()}'
-            id += 1
-        choice = input("{player.name()}, select one of the pokemons:{word}")
-        player.set_selected_pokemon(player.pokemons()[choice-1])
 
     def calculate_damage(self, IsAttackSpecial:bool):
         offensive = self.current_player().main_pokemon()
