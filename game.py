@@ -16,11 +16,25 @@ class Game:
     def pokemons(self):
         return self._pokemons
 
-    def change_first_player(self, player):
-        self.first_player = player
+    def play(self):
+        pokemons = self.pokemons()
+        # pokemons_names = {pokemon.name():pokemon for pokemon in pokemons}
 
-    def change_second_player(self, player):
-        self.second_player = player
+        print(f'Battle: {self.first_player.name()} vs {self.second_player.name()}')
+
+        self.choose_pokemons(self._first_player)
+        self.choose_pokemons(self._second_player)
+        self.choose_pokemon(self._first_player)
+        self.choose_pokemon(self._second_player)
+
+        current = self.first_player()
+        against = self.second_player()
+
+        while current.has_alive_pokemons(): #czy current ma pokemony z hp>0
+            self.round(current, against)
+            temp = current
+            current = against
+            against = temp
 
     def choose_pokemon(self, player:Player):
         word = ''
