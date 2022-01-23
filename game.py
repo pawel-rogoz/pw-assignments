@@ -171,6 +171,18 @@ class Game:
             print("There is no option like that. Try again\n")
             self.round()
 
+    def select_special_attack(self, player:Player):
+        pokemon = player.main_pokemon()
+        abilities = pokemon.abilities()
+        for ability in abilities:
+            print(f'{ability}\n')
+        choice = input('Which one you want to choose? Type ability name\n>>>')
+        if choice in abilities:
+            pokemon.delete_ability(choice)
+        else:
+            print('Wrong data. Try again')
+            self.select_special_attack(player)
+
     def select_random_pokemons(self, file, length):
         list_of_pokemons = load_from_csv(file)
         try:
