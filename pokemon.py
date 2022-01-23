@@ -39,3 +39,6 @@ class Pokemon:
     def decrease_hp(self, delta):
       self._hp -= delta
 
+    def is_alive(self):
+      return self.hp() > 0
+
