@@ -2,6 +2,7 @@ from database import load_from_csv
 from player import Player
 from pokemon import Pokemon
 from random import sample
+import os
 
 class NoPokemonsError(Exception):
     pass
@@ -17,13 +18,11 @@ class Game:
         return self._pokemons
 
     def play(self):
-        pokemons = self.pokemons()
-        # pokemons_names = {pokemon.name():pokemon for pokemon in pokemons}
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(f'Battle: {self.current_player().name()} vs {self.against_player().name()}\n')
 
-        print(f'Battle: {self.first_player.name()} vs {self.second_player.name()}')
-
-        self.choose_pokemons(self._first_player)
-        self.choose_pokemons(self._second_player)
+        self.choose_pokemons(self._current_player)
+        self.choose_pokemons(self._against_player)
         self.choose_pokemon(self._first_player)
         self.choose_pokemon(self._second_player)
 
