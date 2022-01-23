@@ -25,3 +25,7 @@ class Player:
                 return True
         return False
 
+    def add_pokemon(self, pokemon:Pokemon):
+        self._pokemons.append(pokemon)
+
+
