@@ -190,3 +190,12 @@ class Game:
         except NotEnoughPokemonsError:
             print('Not enough pokemons in file to play game')
         return game_pokemons
+
+    def select_new_pokemon_if_not_alive(self):
+        player = self.against_player()
+        pokemon = player.main_pokemon()
+        if not pokemon.is_alive():
+            player.remove_pokemon(pokemon)
+            if player.has_alive_pokemons():
+                print(f'{player.name()}, your selected pokemon is not alive anymore. Select new one\n')
+                self.select_main_pokemon(player)
