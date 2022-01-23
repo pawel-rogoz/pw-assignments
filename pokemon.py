@@ -1,50 +1,13 @@
 class Pokemon:
-    def __init__(self, abilities, against_bug, against_dark, against_dragon, against_electric, against_fairy, against_fight,
-                against_fire, against_flying, against_ghost, against_grass, against_ground, against_ice, against_normal, against_poison,
-                against_psychic, against_rock, against_steel, against_water, attack, base_egg_steps, base_happiness, base_total,
-                capture_rate, classfication, defense, experience_growth, height_m, hp, japanese_name, name, percentage_male,
-                pokedex_number, sp_attack, sp_defense, speed, type1, type2, weight_kg, generation, is_legendary):
+    def __init__(self, abilities, against_normal, attack, defense, hp, name, sp_attack, sp_defense):
         self._abilities = abilities
-        self._against_bug = against_bug
-        self._against_dark = against_dark
-        self._against_dragon = against_dragon
-        self._against_electric = against_electric
-        self._against_fairy = against_fairy
-        self._against_fight = against_fight
-        self._against_fire = against_fire
-        self._against_flying = against_flying
-        self._against_ghost = against_ghost
-        self._against_grass = against_grass
-        self._against_ground = against_ground
-        self._against_ice = against_ice
         self._against_normal = against_normal
-        self._against_poison = against_poison
-        self._against_psychic = against_psychic
-        self._against_rock = against_rock
-        self._against_steel = against_steel
-        self._against_water = against_water
         self._attack = attack
-        self._base_egg_steps = base_egg_steps
-        self._base_happiness = base_happiness
-        self._base_total = base_total
-        self._capture_rate = capture_rate
-        self._classfication = classfication
         self._defense = defense
-        self._experience_growth = experience_growth
-        self._height_m = height_m
         self._hp = hp
-        self._japanese_name = japanese_name
         self._name = name
-        self._percentage_male = percentage_male
-        self._pokedex_number = pokedex_number
         self._sp_attack = sp_attack
         self._sp_defense = sp_defense
-        self._speed = speed
-        self._type1 = type1
-        self._type2 = type2
-        self._weight_kg = weight_kg
-        self._generation = generation
-        self._is_legendary = is_legendary
 
     def abilities(self):
       return self._abilities
