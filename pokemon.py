@@ -33,3 +33,6 @@ class Pokemon:
     def sp_defense(self):
       return self._sp_defense
 
+    def increase_defense(self, percent):
+      self._defense = int(self._defense * (1+percent/100))
+
