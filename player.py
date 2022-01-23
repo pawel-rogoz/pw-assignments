@@ -1,7 +1,7 @@
 from pokemon import Pokemon
 
 class Player:
-    def __init__(self, name, pokemons):
+    def __init__(self, name, pokemons=None):
         self._name = name
         self._pokemons = pokemons if pokemons else []
 
