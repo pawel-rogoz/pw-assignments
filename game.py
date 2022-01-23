@@ -81,8 +81,24 @@ class Game:
 
         return damage
 
-    def change_pokemon(self, player):
-        pass
+    def select_main_pokemon(self, player:Player):
+        word = ''
+        id = 1
+
+        for pokemon in player.pokemons():
+            word += f'\n{id}. {pokemon.name()}'
+            id += 1
+
+        choice = input(f'{player.name()}, select one of the pokemons by name:{word}\n>>>')
+
+        changed = player.set_main_pokemon(choice)
+        if changed:
+            print("Chosen succesfully")
+            self.trap()
+        else:
+            print("Wrong data. Try again")
+            self.trap()
+            self.select_main_pokemon(player)
 
     def select_pokemons(self, player:Player):
         pokemons = self.pokemons_dict()
