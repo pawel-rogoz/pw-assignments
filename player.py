@@ -28,4 +28,12 @@ class Player:
     def add_pokemon(self, pokemon:Pokemon):
         self._pokemons.append(pokemon)
 
+    def set_main_pokemon(self, name):
+        for pokemon in self._pokemons:
+            if pokemon.name() == name:
+                self._main_pokemon = pokemon
+                return True
+        return False
 
+    def main_pokemon(self):
+        return self._main_pokemon
