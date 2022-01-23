@@ -16,11 +16,15 @@ class Game:
         self._pokemons = self.select_random_pokemons('pokemons.csv', 20)
         self._pokemons_dict = {pokemon.name():pokemon for pokemon in self._pokemons}
 
+    def pokemons(self):
+        return self._pokemons
+
     def pokemons_dict(self):
         return self._pokemons_dict
 
-    def pokemons(self):
-        return self._pokemons
+    def trap(self):
+        time.sleep(2)
+        os.system('cls' if os.name == 'nt' else 'clear')
 
     def current_player(self):
         return self._current_player
@@ -28,29 +32,24 @@ class Game:
     def against_player(self):
         return self._against_player
 
-    def play(self):
-        os.system('cls' if os.name == 'nt' else 'clear')
-        print(f'Battle: {self.current_player().name()} vs {self.against_player().name()}\n')
+    def select_main_pokemon(self, player:Player):
+        word = ''
+        id = 1
 
-        self.select_pokemons(self._current_player)
-        self.select_pokemons(self._against_player)
+        for pokemon in player.pokemons():
+            word += f'\n{id}. {pokemon.name()}'
+            id += 1
 
-        while self.current_player().has_alive_pokemons(): #czy current ma pokemony z hp>0
-            self.round()
-            self.select_new_pokemon_if_not_alive()
-            self.swith_current_player()
+        choice = input(f'{player.name()}, select one of the pokemons by name:{word}\n>>>')
 
-        winner = self.against_player()
-        print(f'Congratulations {winner.name()}. You beat {self.current_player().name()}')
-
-    def trap():
-        time.sleep(2)
-        os.system('cls' if os.name == 'nt' else 'clear')
-
-    def swith_current_player(self):
-        temp = self._current_player
-        self._current_player = self._against_player
-        self._against_player = temp
+        changed = player.set_main_pokemon(choice)
+        if changed:
+            print("Chosen succesfully")
+            self.trap()
+        else:
+            print("Wrong data. Try again")
+            self.trap()
+            self.select_main_pokemon(player)
 
     def calculate_damage(self, IsAttackSpecial:bool):
         offensive = self.current_player().main_pokemon()
@@ -76,25 +75,6 @@ class Game:
         damage = min(damage, defensive.hp())
 
         return damage
-
-    def select_main_pokemon(self, player:Player):
-        word = ''
-        id = 1
-
-        for pokemon in player.pokemons():
-            word += f'\n{id}. {pokemon.name()}'
-            id += 1
-
-        choice = input(f'{player.name()}, select one of the pokemons by name:{word}\n>>>')
-
-        changed = player.set_main_pokemon(choice)
-        if changed:
-            print("Chosen succesfully")
-            self.trap()
-        else:
-            print("Wrong data. Try again")
-            self.trap()
-            self.select_main_pokemon(player)
 
     def select_pokemons(self, player:Player):
         pokemons = self.pokemons_dict()
@@ -134,6 +114,18 @@ class Game:
         print("Added succesfully")
         self.trap()
 
+    def select_special_attack(self, player:Player):
+        pokemon = player.main_pokemon()
+        abilities = pokemon.abilities()
+        for ability in abilities:
+            print(f'{ability}\n')
+        choice = input('Which one you want to choose? Type ability name\n>>>')
+        if choice in abilities:
+            pokemon.delete_ability(choice)
+        else:
+            print('Wrong data. Try again')
+            self.select_special_attack(player)
+
     def round(self):
         player = self.current_player()
         against_player = self.against_player()
@@ -171,17 +163,14 @@ class Game:
             print("There is no option like that. Try again\n")
             self.round()
 
-    def select_special_attack(self, player:Player):
+    def select_new_pokemon_if_not_alive(self):
+        player = self.against_player()
         pokemon = player.main_pokemon()
-        abilities = pokemon.abilities()
-        for ability in abilities:
-            print(f'{ability}\n')
-        choice = input('Which one you want to choose? Type ability name\n>>>')
-        if choice in abilities:
-            pokemon.delete_ability(choice)
-        else:
-            print('Wrong data. Try again')
-            self.select_special_attack(player)
+        if not pokemon.is_alive():
+            player.remove_pokemon(pokemon)
+            if player.has_alive_pokemons():
+                print(f'{player.name()}, your selected pokemon is not alive anymore. Select new one\n')
+                self.select_main_pokemon(player)
 
     def select_random_pokemons(self, file, length):
         list_of_pokemons = load_from_csv(file)
@@ -191,14 +180,27 @@ class Game:
             print('Not enough pokemons in file to play game')
         return game_pokemons
 
-    def select_new_pokemon_if_not_alive(self):
-        player = self.against_player()
-        pokemon = player.main_pokemon()
-        if not pokemon.is_alive():
-            player.remove_pokemon(pokemon)
-            if player.has_alive_pokemons():
-                print(f'{player.name()}, your selected pokemon is not alive anymore. Select new one\n')
-                self.select_main_pokemon(player)
+    def swith_current_player(self):
+        temp = self._current_player
+        self._current_player = self._against_player
+        self._against_player = temp
+
+    def play(self):
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(f'Battle: {self.current_player().name()} vs {self.against_player().name()}\n')
+
+        self.select_pokemons(self._current_player)
+        self.select_pokemons(self._against_player)
+        # self.select_pokemon(self._current_player)
+        # self.select_pokemon(self._against_player)
+
+        while self.current_player().has_alive_pokemons(): #czy current ma pokemony z hp>0
+            self.round()
+            self.select_new_pokemon_if_not_alive()
+            self.swith_current_player()
+
+        winner = self.against_player()
+        print(f'Congratulations {winner.name()}. You beat {self.current_player().name()}')
 
 
 if __name__ == "__main__":
