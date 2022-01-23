@@ -3,6 +3,7 @@ from player import Player
 from pokemon import Pokemon
 from random import sample
 import os
+import random
 
 class NotEnoughPokemonsError(Exception):
     pass
@@ -35,8 +36,6 @@ class Game:
         self.choose_pokemon(self._first_player)
         self.choose_pokemon(self._second_player)
 
-        current = self.first_player()
-        against = self.second_player()
 
         while self.current_player().has_alive_pokemons(): #czy current ma pokemony z hp>0
             self.round()
@@ -57,11 +56,30 @@ class Game:
         choice = input("{player.name()}, select one of the pokemons:{word}")
         player.set_selected_pokemon(player.pokemons()[choice-1])
 
-    def normal_attack(self, attacker:Player):
-        pass
+    def calculate_damage(self, IsAttackSpecial:bool):
+        offensive = self.current_player().main_pokemon()
+        defensive = self.against_player().main_pokemon()
+        """
+        damage formula:     (3*Attack/Defence+2)*Modifier
+        Attack  -> offensive.attack()  when attack is normal, offensive.sp_attack()  when it is special
+        Defense -> defensive.defense() when attack is normal, defensive.sp_defense() when it is special
+        Modifier formula:   type*random, in normal attack type is against_normal pokemon's attribute
+        random -> random value from 0,85 to 1,00
+        """
+        randomize = random.randint(0,25)
+        modifier = ((85 + randomize) * defensive.against_normal())/100
 
-    def special_attack(self, player:Player):
-        pass
+        if IsAttackSpecial:
+            damage = int(((3*offensive.sp_attack())/defensive.sp_defense()+2) * modifier)
+        else:
+            damage = int(((3*offensive.attack())/defensive.defense()+2) * modifier)
+
+        """
+        If damage is more than pokemon's hp, method set it to hp points, cause minimum number of hp points is 0
+        """
+        damage = min(damage, defensive.hp())
+
+        return damage
 
     def change_pokemon(self, player):
         pass
