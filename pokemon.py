@@ -42,3 +42,5 @@ class Pokemon:
     def is_alive(self):
       return self.hp() > 0
 
+    def delete_ability(self, ability):
+      self._abilities.remove(ability)
