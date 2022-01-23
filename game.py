@@ -199,3 +199,13 @@ class Game:
             if player.has_alive_pokemons():
                 print(f'{player.name()}, your selected pokemon is not alive anymore. Select new one\n')
                 self.select_main_pokemon(player)
+
+
+if __name__ == "__main__":
+    first_player_name = input("Enter first player name\n>>>")
+    time.sleep(1)
+    second_player_name = input("Enter second player name\n>>>")
+    first_player = Player(first_player_name)
+    second_player = Player(second_player_name)
+    game = Game(first_player, second_player)
+    game.play()
