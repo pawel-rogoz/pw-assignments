@@ -32,6 +32,21 @@ class Game:
     def against_player(self):
         return self._against_player
 
+    def play(self):
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(f'Battle: {self.current_player().name()} vs {self.against_player().name()}\n')
+
+        self.select_pokemons(self._current_player)
+        self.select_pokemons(self._against_player)
+
+        while self.current_player().has_alive_pokemons(): #czy current ma pokemony z hp>0
+            self.round()
+            self.select_new_pokemon_if_not_alive()
+            self.swith_current_player()
+
+        winner = self.against_player()
+        print(f'Congratulations {winner.name()}. You beat {self.current_player().name()}')
+
     def select_main_pokemon(self, player:Player):
         word = ''
         id = 1
@@ -185,20 +200,7 @@ class Game:
         self._current_player = self._against_player
         self._against_player = temp
 
-    def play(self):
-        os.system('cls' if os.name == 'nt' else 'clear')
-        print(f'Battle: {self.current_player().name()} vs {self.against_player().name()}\n')
 
-        self.select_pokemons(self._current_player)
-        self.select_pokemons(self._against_player)
-
-        while self.current_player().has_alive_pokemons(): #czy current ma pokemony z hp>0
-            self.round()
-            self.select_new_pokemon_if_not_alive()
-            self.swith_current_player()
-
-        winner = self.against_player()
-        print(f'Congratulations {winner.name()}. You beat {self.current_player().name()}')
 
 
 if __name__ == "__main__":
