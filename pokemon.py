@@ -37,6 +37,8 @@ class Pokemon:
       self._defense = int(self._defense * (1+percent/100))
 
     def decrease_hp(self, delta):
+      hp = self._hp
+      delta = min(delta, hp)
       self._hp -= delta
 
     def is_alive(self):
