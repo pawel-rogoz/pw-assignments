@@ -47,6 +47,44 @@ class Game:
         winner = self.against_player()
         print(f'Congratulations {winner.name()}. You beat {self.current_player().name()}')
 
+    def select_pokemons(self, player:Player):
+        pokemons = self.pokemons_dict()
+        print("List of pokemon(s):\n")
+        print("NAME             HP      ATTACK      DEFENSE     SP_ATTACK       SP_DEFENSE      ABILITIES NUMBER")
+        for name in pokemons:
+            pokemon = pokemons[name]
+            print(f'{pokemon.name()}'+' '*(17-len(str(pokemon.name())))+f'{pokemon.hp()}'+' '*(8-len(str(pokemon.hp())))+f'{pokemon.attack()}'+' '*(12-len(str(pokemon.attack())))+f'{pokemon.defense()}'+' '*(12-len(str(pokemon.defense())))+f'{pokemon.sp_attack()}'+' '*(16-len(str(pokemon.sp_attack())))+f'{pokemon.sp_defense()}'+' '*(16-len(str(pokemon.sp_defense())))+f'{len(pokemon.abilities())}')
+
+        chosen = input(f'{player.name()}, choose your pokemons (1-6 pokemons) (divide them with ", ")\nFirst selected will be your main pokemon at least for the first round\n>>>')
+        tab = chosen.rsplit(', ')
+
+        for pokemon in tab:
+            if pokemon in pokemons:
+                if pokemons[pokemon] in player.pokemons():
+                    print("You can't choose two same pokemons. Try again")
+                    player.clear_pokemons()
+                    self.trap()
+                    self.select_pokemons(player)
+                else:
+                    player.add_pokemon(pokemons[pokemon])
+            else:
+                print(f'There is no pokemon with name: {pokemon}. Try again')
+                self.trap()
+                player.clear_pokemons()
+                self.select_pokemons(player)
+                break
+
+        if len(tab) > 6:
+            print('You choose more than 6 pokemons. Try again')
+            player.clear_pokemons()
+            self.trap()
+            self.select_pokemons(player)
+
+        main_pokemon = pokemons[tab[0]]
+        player.set_main_pokemon(main_pokemon.name())
+        print("Added succesfully")
+        self.trap()
+
     def select_main_pokemon(self, player:Player):
         word = ''
         id = 1
@@ -90,44 +128,6 @@ class Game:
         damage = min(damage, defensive.hp())
 
         return damage
-
-    def select_pokemons(self, player:Player):
-        pokemons = self.pokemons_dict()
-        print("List of pokemon(s):\n")
-        print("NAME             HP      ATTACK      DEFENSE     SP_ATTACK       SP_DEFENSE      ABILITIES NUMBER")
-        for name in pokemons:
-            pokemon = pokemons[name]
-            print(f'{pokemon.name()}'+' '*(17-len(str(pokemon.name())))+f'{pokemon.hp()}'+' '*(8-len(str(pokemon.hp())))+f'{pokemon.attack()}'+' '*(12-len(str(pokemon.attack())))+f'{pokemon.defense()}'+' '*(12-len(str(pokemon.defense())))+f'{pokemon.sp_attack()}'+' '*(16-len(str(pokemon.sp_attack())))+f'{pokemon.sp_defense()}'+' '*(16-len(str(pokemon.sp_defense())))+f'{len(pokemon.abilities())}')
-
-        chosen = input(f'{player.name()}, choose your pokemons (1-6 pokemons) (divide them with ", ")\nFirst selected will be your main pokemon at least for the first round\n>>>')
-        tab = chosen.rsplit(', ')
-
-        for pokemon in tab:
-            if pokemon in pokemons:
-                if pokemons[pokemon] in player.pokemons():
-                    print("You can't choose two same pokemons. Try again")
-                    player.clear_pokemons()
-                    self.trap()
-                    self.select_pokemons(player)
-                else:
-                    player.add_pokemon(pokemons[pokemon])
-            else:
-                print(f'There is no pokemon with name: {pokemon}. Try again')
-                self.trap()
-                player.clear_pokemons()
-                self.select_pokemons(player)
-                break
-
-        if len(tab) > 6:
-            print('You choose more than 6 pokemons. Try again')
-            player.clear_pokemons()
-            self.trap()
-            self.select_pokemons(player)
-
-        main_pokemon = pokemons[tab[0]]
-        player.set_main_pokemon(main_pokemon.name())
-        print("Added succesfully")
-        self.trap()
 
     def select_special_attack(self, player:Player):
         pokemon = player.main_pokemon()
