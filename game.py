@@ -85,6 +85,43 @@ class Game:
         print("Added succesfully")
         self.trap()
 
+    def round(self):
+        player = self.current_player()
+        against_player = self.against_player()
+        pokemon_current = player.main_pokemon()
+        pokemon_against = against_player.main_pokemon()
+        self.trap()
+        player_choice = input(f'List of options:\n1. Defense\n2. Normal attack\n3. Special attack\n4. Change pokemon\n{player.name()}, choose one\n>>>')
+        if player_choice == "1":
+            pokemon_current.increase_defense(10)
+            print(f"Succesfully increase defense level. Now: {pokemon_current.defense()}")
+
+        elif player_choice == "2":
+            damage = self.calculate_damage(False)
+            pokemon_against.decrease_hp(damage)
+            print(f'Damage given: {damage}. Now hp: {pokemon_against.hp()}')
+
+        elif player_choice == "3":
+            if pokemon_current.abilities():
+                self.select_special_attack(player)
+                damage = self.calculate_damage(True)
+                pokemon_against.decrease_hp(damage)
+                print(f'Damage given: {damage}. Now hp: {pokemon_against.hp()}')
+            else:
+                print('This pokemon does not have any special abilities left. Choose another option')
+                self.round()
+
+        elif player_choice == "4":
+            if len(player.pokemons()) <= 1:
+                print("You can't change pokemon, you do not have more than one pokemon")
+                self.round()
+            else:
+                self.select_main_pokemon(player)
+
+        else:
+            print("There is no option like that. Try again\n")
+            self.round()
+
     def select_main_pokemon(self, player:Player):
         word = ''
         id = 1
@@ -140,43 +177,6 @@ class Game:
         else:
             print('Wrong data. Try again')
             self.select_special_attack(player)
-
-    def round(self):
-        player = self.current_player()
-        against_player = self.against_player()
-        pokemon_current = player.main_pokemon()
-        pokemon_against = against_player.main_pokemon()
-        self.trap()
-        player_choice = input(f'List of options:\n1. Defense\n2. Normal attack\n3. Special attack\n4. Change pokemon\n{player.name()}, choose one\n>>>')
-        if player_choice == "1":
-            pokemon_current.increase_defense(10)
-            print(f"Succesfully increase defense level. Now: {pokemon_current.defense()}")
-
-        elif player_choice == "2":
-            damage = self.calculate_damage(False)
-            pokemon_against.decrease_hp(damage)
-            print(f'Damage given: {damage}. Now hp: {pokemon_against.hp()}')
-
-        elif player_choice == "3":
-            if pokemon_current.abilities():
-                self.select_special_attack(player)
-                damage = self.calculate_damage(True)
-                pokemon_against.decrease_hp(damage)
-                print(f'Damage given: {damage}. Now hp: {pokemon_against.hp()}')
-            else:
-                print('This pokemon does not have any special abilities left. Choose another option')
-                self.round()
-
-        elif player_choice == "4":
-            if len(player.pokemons()) <= 1:
-                print("You can't change pokemon, you do not have more than one pokemon")
-                self.round()
-            else:
-                self.select_main_pokemon(player)
-
-        else:
-            print("There is no option like that. Try again\n")
-            self.round()
 
     def select_new_pokemon_if_not_alive(self):
         player = self.against_player()
