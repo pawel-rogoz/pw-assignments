@@ -42,6 +42,9 @@ class Game:
         return self._against_player
 
     def play(self):
+        """
+        "Main" method of Game class
+        """
         os.system('cls' if os.name == 'nt' else 'clear')
         print(f'Battle: {self.current_player().name()} vs {self.against_player().name()}\n')
 
@@ -156,6 +159,9 @@ class Game:
             self.round()
 
     def select_main_pokemon(self, player:Player):
+        """
+        This method allows user to change main pokemon
+        """
         word = ''
         id = 1
 
@@ -175,6 +181,9 @@ class Game:
             self.select_main_pokemon(player)
 
     def calculate_damage(self, IsAttackSpecial:bool):
+        """
+        This method calculate damage based on damage formula from bulbapedia
+        """
         offensive = self.current_player().main_pokemon()
         defensive = self.against_player().main_pokemon()
         """
@@ -199,6 +208,10 @@ class Game:
         return damage
 
     def select_special_attack(self, player:Player):
+        """
+        In this method user can select special attack from pokemon's abilities
+        Once it is chosen, method delete it from available methods
+        """
         pokemon = player.main_pokemon()
         abilities = pokemon.abilities()
         for ability in abilities:
@@ -211,6 +224,9 @@ class Game:
             self.select_special_attack(player)
 
     def select_new_pokemon_if_not_alive(self):
+        """
+        This allows user to choose new pokemon as main pokemon and check if he has alive pokemons to select from
+        """
         player = self.against_player()
         pokemon = player.main_pokemon()
         if not pokemon.is_alive():
