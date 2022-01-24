@@ -30,9 +30,10 @@ class Game:
             print('Not enough pokemons in file to play game')
         return game_pokemons
 
-    def trap(self):
-        time.sleep(2)
-        os.system('cls' if os.name == 'nt' else 'clear')
+    def swith_current_player(self):
+        temp = self._current_player
+        self._current_player = self._against_player
+        self._against_player = temp
 
     def current_player(self):
         return self._current_player
@@ -92,6 +93,10 @@ class Game:
         player.set_main_pokemon(main_pokemon.name())
         print("Added succesfully")
         self.trap()
+
+    def trap(self):
+        time.sleep(2)
+        os.system('cls' if os.name == 'nt' else 'clear')
 
     def round(self):
         player = self.current_player()
@@ -194,13 +199,6 @@ class Game:
             if player.has_alive_pokemons():
                 print(f'{player.name()}, your selected pokemon is not alive anymore. Select new one\n')
                 self.select_main_pokemon(player)
-
-    def swith_current_player(self):
-        temp = self._current_player
-        self._current_player = self._against_player
-        self._against_player = temp
-
-
 
 
 if __name__ == "__main__":
