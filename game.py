@@ -22,6 +22,14 @@ class Game:
     def pokemons_dict(self):
         return self._pokemons_dict
 
+    def select_random_pokemons(self, file, length):
+        list_of_pokemons = load_from_csv(file)
+        try:
+            game_pokemons = sample(list_of_pokemons, length)
+        except NotEnoughPokemonsError:
+            print('Not enough pokemons in file to play game')
+        return game_pokemons
+
     def trap(self):
         time.sleep(2)
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -186,14 +194,6 @@ class Game:
             if player.has_alive_pokemons():
                 print(f'{player.name()}, your selected pokemon is not alive anymore. Select new one\n')
                 self.select_main_pokemon(player)
-
-    def select_random_pokemons(self, file, length):
-        list_of_pokemons = load_from_csv(file)
-        try:
-            game_pokemons = sample(list_of_pokemons, length)
-        except NotEnoughPokemonsError:
-            print('Not enough pokemons in file to play game')
-        return game_pokemons
 
     def swith_current_player(self):
         temp = self._current_player
