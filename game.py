@@ -191,8 +191,6 @@ class Game:
 
         self.select_pokemons(self._current_player)
         self.select_pokemons(self._against_player)
-        # self.select_pokemon(self._current_player)
-        # self.select_pokemon(self._against_player)
 
         while self.current_player().has_alive_pokemons(): #czy current ma pokemony z hp>0
             self.round()
