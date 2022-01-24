@@ -48,6 +48,12 @@ class Game:
         self.select_pokemons(self._current_player)
         self.select_pokemons(self._against_player)
 
+        """
+        While current player has alive pokemons, rounds will be played. But if one of the player's beat
+        all pokemons of second one winner, loop will swich current player for the last time, so against_player
+        win game then
+        """
+
         while self.current_player().has_alive_pokemons(): #czy current ma pokemony z hp>0
             self.round()
             self.select_new_pokemon_if_not_alive()
@@ -57,6 +63,10 @@ class Game:
         print(f'Congratulations {winner.name()}. You beat {self.current_player().name()}')
 
     def select_pokemons(self, player:Player):
+        """
+        This method allow user to select 1-6 pokemons (by name only)
+        First chosen pokemon will be main pokemon for the first round
+        """
         pokemons = self.pokemons_dict()
         print("List of pokemon(s):\n")
         print("NAME             HP      ATTACK      DEFENSE     SP_ATTACK       SP_DEFENSE      ABILITIES NUMBER")
@@ -95,10 +105,20 @@ class Game:
         self.trap()
 
     def trap(self):
+        """
+        This method allow user to read messages from the program by pausing it for 2 seconds
+        After this time, terminal screen will be clean out
+        """
         time.sleep(2)
         os.system('cls' if os.name == 'nt' else 'clear')
 
     def round(self):
+        """
+        In this method user choose one from 4 options
+        Two of them allows to give damage to another pokemon
+        First one increases defense level
+        Last one allows to change main pokemon (posiible only if user has more than 1 pokemon alive)
+        """
         player = self.current_player()
         against_player = self.against_player()
         pokemon_current = player.main_pokemon()
@@ -175,7 +195,6 @@ class Game:
         """
         If damage is more than pokemon's hp, method set it to hp points, cause minimum number of hp points is 0
         """
-        damage = min(damage, defensive.hp())
 
         return damage
 
