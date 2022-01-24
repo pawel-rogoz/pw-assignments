@@ -27,14 +27,35 @@ def test_delete_ability():
     pokemon.delete_ability('KeenEye')
     assert len(pokemon.abilities()) == 0
 
-def test_attributes():
+def test_abilities():
     pokemon = Pokemon(['KeenEye'], 50, 30, 100, 70, 'Bulbasaur', 40, 80)
     assert len(pokemon.abilities()) == 1
+
+def test_against_normal():
+    pokemon = Pokemon(['KeenEye'], 50, 30, 100, 70, 'Bulbasaur', 40, 80)
     assert pokemon.against_normal() == 50
+
+def test_attack():
+    pokemon = Pokemon(['KeenEye'], 50, 30, 100, 70, 'Bulbasaur', 40, 80)
     assert pokemon.attack() == 30
+
+def test_defense():
+    pokemon = Pokemon(['KeenEye'], 50, 30, 100, 70, 'Bulbasaur', 40, 80)
     assert pokemon.defense() == 100
+
+def test_hp():
+    pokemon = Pokemon(['KeenEye'], 50, 30, 100, 70, 'Bulbasaur', 40, 80)
     assert pokemon.hp() == 70
+
+def test_name():
+    pokemon = Pokemon(['KeenEye'], 50, 30, 100, 70, 'Bulbasaur', 40, 80)
     assert pokemon.name() == 'Bulbasaur'
+
+def test_sp_attack():
+    pokemon = Pokemon(['KeenEye'], 50, 30, 100, 70, 'Bulbasaur', 40, 80)
     assert pokemon.sp_attack() == 40
+
+def test_sp_defense():
+    pokemon = Pokemon(['KeenEye'], 50, 30, 100, 70, 'Bulbasaur', 40, 80)
     assert pokemon.sp_defense() == 80
 
