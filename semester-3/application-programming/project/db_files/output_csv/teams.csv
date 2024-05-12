@@ -1,0 +1,99 @@
+name,team_id,acronym,country_id
+Manchester City,0,MAN,97
+Bayern Munich,1,BAY,195
+Paris Saint-Germain,2,PAR,198
+Barcelona,3,BAR,219
+Real Madrid,4,REA,28
+Manchester United,5,MAN,42
+Juventus,6,JUV,21
+Aston Villa,7,AST,151
+Borussia Dortmund,8,BOR,60
+Atletico Madrid,9,ATL,121
+Atalanta,10,ATA,25
+Chelsea,11,CHE,10
+Liverpool,12,LIV,28
+AC Milan,13,AC ,44
+Lille,14,LIL,74
+Tottenham,15,TOT,0
+Napoli,16,NAP,220
+Leicester,17,LEI,47
+Wolfsburg,18,WOL,145
+Inter,19,INT,85
+Lyon,20,LYO,31
+RB Leipzig,21,RB ,67
+Leeds,22,LEE,57
+West Ham,23,WES,36
+Everton,24,EVE,100
+Bayer Leverkusen,25,BAY,115
+Eintracht Frankfurt,26,EIN,18
+Monaco,27,MON,124
+Roma,28,ROM,171
+Sevilla,29,SEV,46
+Borussia M.Gladbach,30,BOR,185
+Arsenal,31,ARS,159
+Rennes,32,REN,32
+VfB Stuttgart,33,VFB,202
+Wolverhampton Wanderers,34,WOL,128
+Sassuolo,35,SAS,92
+Metz,36,MET,203
+Villarreal,37,VIL,47
+Real Sociedad,38,REA,123
+Brighton,39,BRI,224
+Real Betis,40,REA,23
+Burnley,41,BUR,164
+Lens,42,LEN,57
+Brest,43,BRE,10
+Fulham,44,FUL,214
+Marseille,45,MAR,90
+Sampdoria,46,SAM,217
+Montpellier,47,MON,21
+Nice,48,NIC,28
+Hoffenheim,49,HOF,153
+Southampton,50,SOU,58
+Newcastle United,51,NEW,55
+Lazio,52,LAZ,129
+Nantes,53,NAN,157
+Union Berlin,54,UNI,158
+Strasbourg,55,STR,65
+Crystal Palace,56,CRY,23
+Freiburg,57,FRE,71
+Valencia,58,VAL,56
+Celta Vigo,59,CEL,156
+Reims,60,REI,152
+Torino,61,TOR,82
+Verona,62,VER,147
+Saint-Etienne,63,SAI,99
+Bordeaux,64,BOR,170
+Hertha Berlin,65,HER,136
+Cagliari,66,CAG,104
+Mainz 05,67,MAI,7
+Bologna,68,BOL,63
+Augsburg,69,AUG,155
+Udinese,70,UDI,166
+SD Huesca,71,SD ,67
+Athletic Bilbao,72,ATH,78
+Osasuna,73,OSA,77
+Lorient,74,LOR,112
+Genoa,75,GEN,61
+Arminia Bielefeld,76,ARM,83
+Angers,77,ANG,16
+Eibar,78,EIB,190
+Werder Bremen,79,WER,172
+Fiorentina,80,FIO,124
+Nimes,81,NIM,123
+West Bromwich Albion,82,WES,73
+FC Koln,83,FC ,90
+Deportivo Alaves,84,DEP,46
+Levante,85,LEV,3
+Spezia,86,SPE,225
+Getafe,87,GET,155
+Parma Calcio 1913,88,PAR,98
+Elche,89,ELC,19
+Granada,90,GRA,76
+Cadiz,91,CAD,118
+Real Valladolid,92,REA,214
+Sheffield United,93,SHE,126
+Crotone,94,CRO,60
+Benevento,95,BEN,152
+Dijon,96,DIJ,107
+Schalke 04,97,SCH,97

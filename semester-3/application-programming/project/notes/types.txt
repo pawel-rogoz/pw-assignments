@@ -1,0 +1,32 @@
+Piłkarz:
+    -imie, nazwisko
+    -jaka drużyna
+    -wiek
+    -wzrost
+    -w jakich meczach grał
+    -waga
+    -pochodzenie
+
+Drużyna
+    -nazwa
+    -lista piłkarzy
+    -lista meczy w jakich grała
+    -Miejscowość (skąd jest)
+
+Mecz:
+    drużyna A,
+    drużyna B,
+    wynik,
+    data,
+    miejsce rozgrywki,
+    kto grał na jakiej pozycji,
+    kto był na ławce rezerwowych i na jakiej pzycji mógłby grać
+
+
+Klasy:
+    SimplePlayer: first_name, last_name, id_piłkarza, nazwa drużyny
+    FullPlayer: to + reszta
+    SimpleTeam: Nazwa Drużyny, id_druzyny
+    FullTeam: to + reszta
+    SimpleMatch: nazwa druzny A, nazwa druzyny B, wynik, data
+    Full Match: to + reszta

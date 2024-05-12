@@ -1,0 +1,44 @@
+Jak działa (ma działać) nasza aplikacja:
+
+    1)Aplikacja zostaje uruchomiona.
+
+    2)Aplikacja, używając statycznej metody 'getLeagues' klasy DataProvider pobiera z bazy danych listę wszystkich lig.
+        (Metoda getLeagues zwraca tablice obiektów klasy League, w których są dwa pola: nazwa ligi i id ligi.)
+
+    3) Aplikacja wyświetla na ekranie liste lig i pozwala użytkownikowi wybrać jedną lige.
+
+    4) Aplikacja tworzy nowy obiekt klasy DataProvider. Używa do tego statycznej metody getDataProvider klasy DataProvider (fabryka).
+    Metoda ta działa na zasadzie wszystko albo nic, jak się udało wszystko pobrać, to zwraca nowy obiekt DataProvider, jak
+    chociaż jedna rzecz poszła nie tak (na przykład udało się pobrać druży i piłkarzy, ale przy pobieraniu meczy zerwało
+    internet, to metoda getDataProvider zwraca null. (Patrz league.connectivity.DataProvider.getDataProvider)
+    Jak nie udało się utworzyć obiektu DataProvider, to aplikacja prosi użytkownika o spróbowanie ponownie i wraca do punktu 2.
+    Jak się wszystko udało, to aplikacja idzie do punktu 5.
+
+    5) Przechodzimy do głownej części aplikacji. Na ekranie w którymś miejcu wyświetla się nawigacja umożliwiająca:
+        --- going back (powrót do wyboru ligi (powrót do punktu 2))
+        --- przełączanie widoku między:
+            * wyświetlaniem listy piłkarzy
+            * wyświetlaniem listy drużyn
+            * wyświetlaniem listy meczy
+            * jakieś menu umożliwiające dodawanie nowych piłkarzy meczy itd
+
+
+TO DO LIST FOR PAWEŁ:
+    Zrobienie sekcji podstawy graficznej aplikacji (,tylko zamiast listy drużyn, listy meczy itd wyświetla się napis typu
+    "tu na razie jest ściernisko, będzie lista drużyn"). Nie zostało ustalone gdzie i jak będzie nawigacja, może to być
+    panel dolny, moze to być menu po prawej, rozwijana lista, jak zrobisz tak będzie dobrze. Nie zostało ustalone czy,
+    to przełączenie pomiędzy wyświetlaniem różnych rzeczy będzie na zasadzie tworzenia nowych okien, czy przełączaniu
+    widoku, czy jakiś kontenerów, fragmentów. Jak zrobisz tak będzie dobrze. (Jak będzie działało.)
+
+    Uwagi: Mamy (chyba) całkiem ładnie zaplanowaną architekture apki, jest warstwowa, poszczególna warstwy współpracują
+    ze sobą. Warstwa graficzna aplikacji współpracuje z klasą 'DataProvider' warstwy łączenia się za bazą dancyh. Mówiąc
+    inaczej, nie musisz mieć zielonego pojęcia co robią klasy BaseConector, DataGetter i ListCreator. Na pewno musisz
+    przeczytać opisy metod getDateProvider i getLeagues. Możesz podejrzeć opisy reszty metod w klasie DataProvider, zobaczyć
+    plik Main.java, ale nie musisz, możesz sobie bez tego poradzić.
+
+
+TO DO LIST FOR JEDRZEJ:
+    przerobić zasade działania fabryki DataProvider (żeby wszystko było robione na jednym połączeniu, nie trzech
+    osobnych)
+
+

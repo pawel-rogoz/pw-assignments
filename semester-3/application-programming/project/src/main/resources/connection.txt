@@ -1,0 +1,6 @@
+{
+"className": "oracle.jdbc.driver.OracleDriver",
+"url": "jdbc:oracle:thin:@ora4.ii.pw.edu.pl:1521/pdb1.ii.pw.edu.pl",
+"user": "z99",
+"password": "29vwr3",
+}

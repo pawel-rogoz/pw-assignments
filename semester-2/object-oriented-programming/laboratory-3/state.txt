@@ -1,0 +1,8 @@
+Elements changed:
+Price of: DANIE2 is now set as: 10
+DANIE2 now has a new allergen: soja
+DANIE2 now has a new ingredient: sos
+DANIE2 is now not available
+Kcal of: DANIE2 is now set as: 400
+Added new dish: DANIE2 to the restaurant: Pod niebem
+Restaurant: Pod niebem has now a new name: AliBaba
