@@ -1,0 +1,1111 @@
+?- start.
+
+Wprowadzaj komendy używając standardowej składni Prologu.
+Dostępne komendy
+start.               -- rozpocznij grę.
+idź(miejsce).        -- aby przejść w dane miejsce.
+eq.                  -- aby pokazać ekwipunek.
+podnieś(przedmiot).  -- aby podnieść przedmiot.
+wyrzuć(przedmiot).   -- aby wyrzucić przedmiot.
+spójrz.              -- aby rozejrzeć się dookoła.
+instrukcje.          -- aby zobaczyć tą wiadomość ponownie.
+halt.                -- aby zakończyć grę i wyjść.
+
+Kolejny beztroski dzień w grodzie zamku
+Przewracasz się z boku na bok, zastanawiasz się, czy może powinieneś już wstać z łóżka
+Nagle słyszysz głośny huk drzwi
+Do pokoju wbiega jeden z pracowników dworu
+Pracownik: Książe! Wstawaj! Wstawaj!
+Ty: Co się stało?
+P: Porwano księżniczkę!
+T: Co? Jak to?
+P: Nie wiem, na dworze jest straszne zamieszanie. Król kazał Cię jak najszybciej wezwać
+Wyjdź na korytarz, używając komendy: idź(korytarz) i spróbuj znaleźć króla
+
+Z tego miejsca możesz przejść do: 
+-> korytarz
+
+
+true.
+
+?- idź(korytarz).
+Znajdujesz się w korytarzu Twojego zamku
+Pamiętaj, aby zajrzeć do każdego pokoju w zamku
+Mogą się w nich znajdować cenne wskazówki i przedmioty,
+które mogą okazać się niezbędne do wykonania Twoich zadań
+
+Z tego miejsca możesz przejść do: 
+-> sypialnia_ksiecia
+-> kuchnia
+-> zbrojownia
+-> pralnia
+-> komnata_krola
+-> brama_zamkowa
+
+
+true.
+
+?- idź(komnata_krola).
+Otwierasz drzwi do komnaty króla
+Słyszysz dobiegający z wnętrza dźwięk szlochania
+Wchodzisz do środka i widzisz króla, który zapłakany siedzi na tronie
+Ty: Królu! Co się stało?
+Król: Porwano moją córkę!
+T: Co? Jak to?
+K: Nie wiem, jak to się stało. Wszystko działo się tak szybko.
+   Wszystko, co wiem, to to, że w komnacie znalazłem list
+   Jest w rogu pokoju, weź go i przeczytaj
+   Zrób wszystko, co w Twojej mocy, aby ją odnaleźć
+T: Nie widzę tutaj żadnego listu
+K: O nie! Była tu rano sprzątaczka, pewnie go wzięła.
+   Musisz ją znaleźć. Na pewno jest gdzieś w zamku
+
+Z tego miejsca możesz przejść do: 
+-> korytarz
+
+
+true.
+
+?- idź(korytarz).
+Znajdujesz się w korytarzu Twojego zamku
+Pamiętaj, aby zajrzeć do każdego pokoju w zamku
+Mogą się w nich znajdować cenne wskazówki i przedmioty,
+które mogą okazać się niezbędne do wykonania Twoich zadań
+
+Z tego miejsca możesz przejść do: 
+-> sypialnia_ksiecia
+-> kuchnia
+-> zbrojownia
+-> pralnia
+-> komnata_krola
+-> brama_zamkowa
+
+
+true.
+
+?- idź(zbrojownia).
+Pracownik zbrojowni: Co Ty tu jeszcze robisz? Znajdź księżniczkę, a nie szlajaj się po zamku!
+
+Z tego miejsca możesz przejść do: 
+-> korytarz
+
+
+true.
+
+?- idź(korytarz).
+Znajdujesz się w korytarzu Twojego zamku
+Pamiętaj, aby zajrzeć do każdego pokoju w zamku
+Mogą się w nich znajdować cenne wskazówki i przedmioty,
+które mogą okazać się niezbędne do wykonania Twoich zadań
+
+Z tego miejsca możesz przejść do: 
+-> sypialnia_ksiecia
+-> kuchnia
+-> zbrojownia
+-> pralnia
+-> komnata_krola
+-> brama_zamkowa
+
+
+true.
+
+?- idź(pralnia).
+Służąca: Doszły do mnie wieści. Jak czuje się król?
+Ty: Nie najlepiej. Sprzątałaś może dziś w jego pokoju?
+S: Oczywiście, jak codziennie. Mnóstwo babilotów i papierów, miałam dziś dużo pracy
+T: Gdzie są te papiery?
+S: Właśnie miałam je spalić, są w rogu pokoju
+T: Muszę się im przyjrzeć
+
+Z tego miejsca możesz przejść do: 
+-> korytarz
+
+Przedmioty w tym miejscu: 
+-> list
+
+true.
+
+?- podnieś(list).
+Wziąłeś list
+Aby przeczytać jego zawartość, wpisz komendę: przeczytaj(list)
+true.
+
+?- idź(korytarz).
+Znajdujesz się w korytarzu Twojego zamku
+Pamiętaj, aby zajrzeć do każdego pokoju w zamku
+Mogą się w nich znajdować cenne wskazówki i przedmioty,
+które mogą okazać się niezbędne do wykonania Twoich zadań
+
+Z tego miejsca możesz przejść do: 
+-> sypialnia_ksiecia
+-> kuchnia
+-> zbrojownia
+-> pralnia
+-> komnata_krola
+-> brama_zamkowa
+
+
+true.
+
+?- idź(komnata_krola).
+Król: I jak? Znalazłeś już list?
+Ty: Tak, zobacz go proszę
+*pokazujesz list królowi*
+K: MK? To nie może być...
+T: Kto to jest?
+K: To mój brat. Zawsze był zazdrosny o potęgę mojego królestwa.
+T: Czego on chce?
+K: Nie wiem, ale musisz go powstrzymać. Nie pozwolę, aby zrobił krzywdę mojej córce.
+   Jego zamek znajduje się na północy. Potrzebujesz konia, żeby tam dotrzeć.
+   Nasze grody od dawna za sobą nie przepadają. Nie będzie to łatwe zadanie
+   Musisz się też uzbroić. Idź do kowala, znajdziesz go w przedzamczu.
+T: Oczywiście. Królu, obiecuję, że przyprowadzę księżniczkę z powrotem.
+
+Z tego miejsca możesz przejść do: 
+-> korytarz
+
+
+true.
+
+?- idź(korytarz).
+Znajdujesz się w korytarzu Twojego zamku
+Pamiętaj, aby zajrzeć do każdego pokoju w zamku
+Mogą się w nich znajdować cenne wskazówki i przedmioty,
+które mogą okazać się niezbędne do wykonania Twoich zadań
+
+Z tego miejsca możesz przejść do: 
+-> sypialnia_ksiecia
+-> kuchnia
+-> zbrojownia
+-> pralnia
+-> komnata_krola
+-> brama_zamkowa
+
+
+true.
+
+?- idź(kuchnia).
+Kucharka: Co się dzieje w zamku? Czy już wiesz, co się stało?
+Ty: Pracuję nad tym.
+W rogu pokoju znajduje się sterta marchewek i cukier.
+Mogą się przydać na później
+
+Z tego miejsca możesz przejść do: 
+-> korytarz
+
+Przedmioty w tym miejscu: 
+-> marchewki
+-> cukier
+
+true.
+
+?- podnieś(marchewki).
+OK.
+true.
+
+?- podnieś(cukier).
+OK.
+true.
+
+?- idź(korytarz).
+Znajdujesz się w korytarzu Twojego zamku
+Pamiętaj, aby zajrzeć do każdego pokoju w zamku
+Mogą się w nich znajdować cenne wskazówki i przedmioty,
+które mogą okazać się niezbędne do wykonania Twoich zadań
+
+Z tego miejsca możesz przejść do: 
+-> sypialnia_ksiecia
+-> kuchnia
+-> zbrojownia
+-> pralnia
+-> komnata_krola
+-> brama_zamkowa
+
+
+true.
+
+?- idź(brama_zamkowa).
+Znajdujesz się w bramie zamkowej
+Za bramą znajduje się przedzamcze, z którego
+możesz udać się do miejsc w okolicy zamku
+Na pewno będzie interesować Cię zakład kowala
+Zajrzyj też do stajni, aby wziąć konia
+
+Z tego miejsca możesz przejść do: 
+-> korytarz
+-> przedzamcze
+
+
+true.
+
+?- idź(przedzamcze).
+Jesteś w: przedzamcze
+
+Z tego miejsca możesz przejść do: 
+-> brama_zamkowa
+-> kowal
+-> stajnia
+-> droga_do_wroga
+
+
+true.
+
+?- idź(stajnia).
+Otwierasz drzwi stajni
+Rozglądasz się dookoła i nie widzisz nikogo.
+Drzwi do pokoju, w którym znajdują się konie, są zamknięte
+Udaj się do pokoju masztalerza, on pomoże Ci je otworzyć
+
+Z tego miejsca możesz przejść do: 
+-> przedzamcze
+-> pokoj
+-> wybieg
+-> spichlerz
+
+
+true.
+
+?- idź(pokoj).
+Wchodzisz do pokoju masztalerza. Co on robi?
+Oczywiście - śpi. Jak zwykle...
+Ty: Wstawaj! Pobudka! Potrzebuję Cię!
+Ani drgnie. Jest znany w całym grodzie ze swojego głębokiego snu
+Aby spróbować go obudzić, użyj komendy 'obudź(masztalerz)'
+
+Z tego miejsca możesz przejść do: 
+-> stajnia
+
+Przedmioty w tym miejscu: 
+-> woda
+
+true.
+
+?- obudź(masztalerz).
+Weź wodę połozoną w kącie pokoju (komenda podnieś(woda))
+Wykorzystasz ją do polania masztalerza
+Niestety, to jedyny znany sposób, w jaki udało się go kiedykolwiek wybudzić
+Kiedy już będziesz ją miał, ponownie wpisz komendę 'obudź(masztalerz)'
+true.
+
+?- podnieś(woda).
+OK.
+true.
+
+?- obudź(masztalerz).
+Masz już wodę, teraz niestety przychodzi gorsza część zadania
+Musisz oblać ją masztalerza...
+Wpisz komendę 'oblej.', aby to zrobić
+true.
+
+?- oblej.
+Kiedy klikniesz enter, polejesz wodą masztalerza
+Rób to tak długo, jak długo będzie pozostawał w śnie
+Kliknij 'enter'
+Ani drgnie! Spróbuj jeszcze raz!
+Wciąż śpi? Jak to w ogóle jest możliwe?
+No dobra, ostatnia szansa!
+Masztalerz: CO TY ROBISZ?!
+Ty: Księżniczka została porwana! Potrzebuję jednego ze stajennych koni
+M: Kto ją porwał?
+T: Brat króla, MK
+M: O nie!
+   Sytuacja nie będzie prosta. Potrzebujesz najszybszego z naszych koni. Ale..
+   Nie do końca wiem, który jest najszybszy. Musisz je przetestować
+   Masz tu klucze do stajni
+
+*masztalerz wkłada klucze do Twojej kieszeni*
+
+M: Sytuacja jest ciężka, to prawda. Ale szczerze?
+   Co jak co, ale ja wciąż jestem śpiący. Idź, dasz radę sobie sam
+   Powodzenia!
+
+Klucze pojawiły się w Twoim ekwipunku
+Przejdź do stajni i spróbuj otworzyć nimi drzwi
+true.
+
+?- idź(stajnia).
+Masz klucze, to wspaniale!
+Otwórz drzwi do pokoju z końmi, wpisując komendę: 'otwórz.'
+Po otworzeniu drzwi pojawi się nowa ścieżka, która umożliwi Ci wejście do pokoju
+Zauważysz ją, wpisując komendę 'spójrz.', po otworzeniu drzwi
+
+Z tego miejsca możesz przejść do: 
+-> przedzamcze
+-> pokoj
+-> wybieg
+-> spichlerz
+
+
+true.
+
+?- otwórz.
+Otworzyłeś drzwi do pokokju z końmi
+Spróbuj teraz wejść do środka
+true.
+
+?- spójrz.
+Masz klucze, to wspaniale!
+Otwórz drzwi do pokoju z końmi, wpisując komendę: 'otwórz.'
+Po otworzeniu drzwi pojawi się nowa ścieżka, która umożliwi Ci wejście do pokoju
+Zauważysz ją, wpisując komendę 'spójrz.', po otworzeniu drzwi
+
+Z tego miejsca możesz przejść do: 
+-> przedzamcze
+-> pokoj
+-> wybieg
+-> spichlerz
+-> konie
+
+
+true.
+
+?- idź(konie).
+Znajdujesz się teraz w pokoju konnym
+Problem jest taki, że konie się Ciebie boją
+Musisz je jakoś do siebie przekonać
+Jedne konie lubią marchewkę, inne cukier
+Musisz je nakarmić ich ulubionym pokarmem, aby chciały z Tobą współpracować
+Aby nakarmić konia, użyj komendy 'nakarm(imię_konia,marchewki/cukier)'
+Jeśli nie masz tych pokarmów, musisz wrócić do zamkowej kuchni i je zdobyć
+
+Z tego miejsca możesz przejść do: 
+-> stajnia
+
+Przedmioty w tym miejscu: 
+-> zefir
+-> jutrznia
+-> fantazja
+-> heros
+
+true.
+
+?- nakarm(zefir, marchewki).
+To nie jest ulubiony pokarm tego konia
+Spróbuj czegoś innego
+true.
+
+?- nakarm(zefir, cukier).
+Udało się! To ulubiony pokarm Zefira!
+Zdecydowanie Cię polubił
+true.
+
+?- nakarm(jutrznia, cukier).
+To nie jest ulubiony pokarm tego konia
+Spróbuj czegoś innego
+true.
+
+?- nakarm(jutrznia, marchewki).
+Udało się! To ulubiony pokarm Jutrznii!
+Zdecydowanie Cię polubiła
+true.
+
+?- nakarm(fantazja, marchewki).
+Udało się! To ulubiony pokarm Fantazji!
+Zdecydowanie Cię polubiła
+true.
+
+?- nakarm(heros, cukier).
+Udało się! To ulubiony pokarm Herosa!
+Zdecydowanie Cię polubił
+
+Wszystkie konie są już oswojone. Możesz teraz przejechać się na każdym
+z nich i wybrać najszybszego. Użyj do tego komendy: 'jedź(imię_konia).'
+Pamiętaj, aby przejechać się na każdym koniu
+true.
+
+?- jedź(zefir).
+Nie jest ani źle, ani dobrze...
+Przejechałeś na nim tor obok stajni w: 20 sekund!
+true.
+
+?- jedź(heros).
+Wow, ale on jest szybki.
+Przejechałeś na nim tor obok stajni w: 10 sekund!
+true.
+
+?- jedź(jutrznia).
+Co on taki wolny?
+Przejechałeś na nim tor obok stajni w: 40 sekund!
+true.
+
+?- jedź(fantazja).
+Czy ty w ogólne zdążyłeś na niego wsiąść?!
+Przejechałeś na nim tor obok stajni w: 6 sekund!
+
+Wszystkie konie zostały sprawdzone. Teraz musisz wybrać najszybszego.
+Użyj do tego komendy: 'wybierz(imię_konia)'
+Pamiętaj - n a j s z y b s z e g o
+true.
+
+?- wybierz(zefir).
+Nie powiem Ci, który koń jest najszybszy...
+Powiem Ci tylko, że to na pewno nie ten
+true.
+
+?- wybierz(fantazja).
+Jedyny słuszny wybór!
+Zakończyłeś zadanie związane z wyborem konia.
+Możesz opuścić stajnie
+Z tego miejsca możesz przejść do: 
+-> stajnia
+true.
+
+?- idź(stajnia).
+W stajni nie ma już nic ciekawego
+Wybrałeś konia, pora zająć się następnymi zadaniami
+No już, opuszczaj pokój - czas jest cenny!
+
+Z tego miejsca możesz przejść do: 
+-> przedzamcze
+-> pokoj
+-> wybieg
+-> spichlerz
+-> konie
+
+
+true.
+
+?- idź(przedzamcze).
+Jesteś w: przedzamcze
+
+Z tego miejsca możesz przejść do: 
+-> brama_zamkowa
+-> kowal
+-> stajnia
+-> droga_do_wroga
+
+
+true.
+
+?- idź(droga_do_wroga).
+Nie jesteś jeszcze gotowy na podróż do wroga.
+Potrzebujesz się uzbroić i zdobyć konia.
+
+Jesteś w: przedzamcze
+
+Z tego miejsca możesz przejść do: 
+-> brama_zamkowa
+-> kowal
+-> stajnia
+-> droga_do_wroga
+
+
+true.
+
+?- idź(kowal).
+Jesteś u kowala.
+Zauważasz, że właśnie ciężko pracuje on nad tworzeniem nowego miecza.
+Może będziesz w stanie uzyskać tutaj potrzebny ekwipunek...
+
+-- aby zacząć rozmowę z kowalem, wpisz 'rozmawiaj.' --
+
+Z tego miejsca możesz przejść do: 
+-> przedzamcze
+-> lada
+-> składzik
+-> kowadło
+-> regały
+-> szafka
+
+
+true.
+
+?- rozmawiaj.
+Podchodzisz do zapracowanego kowala, który w końcu cię zauważa.
+Kowal: Nie widzisz, że jestem zajęty?
+Kowal: Jeśli czegoś ode mnie chcesz, to nie da rady.
+Kowal: No chyba, że pomożesz mi z kilkoma rzeczami...
+Rycerz: Potrzebuję dostać miecz i zbroję.
+Kowal: To nie są tanie rzeczy, ale myślę, że się dogadamy.
+Rycerz: Słucham.
+Kowal: Jak widzisz, właśnie pracuję nad jednym mieczem.
+Kowal: Tak się składa, że zgubiłem gdzieś tutaj do niego rękojeść.
+Kowal: Jeśli ją znajdziesz, oddam ci mój stary, lecz wciąż sprawny miecz.
+true.
+
+?- spójrz.
+Jesteś u kowala.
+Zauważasz, że właśnie ciężko pracuje on nad tworzeniem nowego miecza.
+Może będziesz w stanie uzyskać tutaj potrzebny ekwipunek...
+
+-- aby zacząć rozmowę z kowalem, wpisz 'rozmawiaj.' --
+
+Z tego miejsca możesz przejść do: 
+-> przedzamcze
+-> lada
+-> składzik
+-> kowadło
+-> regały
+-> szafka
+
+
+true.
+
+?- idź(lada).
+Spoglądasz pod ladę, lecz nie zauważasz tu nic ciekawego.
+
+Z tego miejsca możesz przejść do: 
+-> składzik
+-> kowal
+-> szafka
+
+
+true.
+
+?- idź(składzik).
+Jesteś w składziku.
+Jest tu spory bałagan, lecz zauważasz na wierzchu kilka rzeczy.
+
+Z tego miejsca możesz przejść do: 
+-> kowadło
+-> kowal
+-> lada
+
+Przedmioty w tym miejscu: 
+-> miotła
+-> drabina
+-> wiadro
+
+true.
+
+?- podnieś(miotła).
+OK.
+true.
+
+?- podnieś(drabina).
+OK.
+true.
+
+?- podnieś(wiadro).
+OK.
+true.
+
+?- eq.
+Posiadasz następujące przedmioty: 
+- list
+- marchewki
+- cukier
+- woda
+- klucze
+- fantazja
+- miotła
+- drabina
+- wiadro
+true.
+
+?- spójrz.
+Jesteś w składziku.
+Jest tu spory bałagan, lecz zauważasz na wierzchu kilka rzeczy.
+
+Z tego miejsca możesz przejść do: 
+-> kowadło
+-> kowal
+-> lada
+
+
+true.
+
+?- idź(kowadło).
+Sprawdzasz okolicę obok kowadła.
+Leży tu kilka sprzętów, lecz nie dostrzegasz nic przydatnego.
+
+Z tego miejsca możesz przejść do: 
+-> regały
+-> kowal
+-> składzik
+
+
+true.
+
+?- idź(regały).
+Podchodzisz do regałów.
+Zauważasz rękojeść na najwyższej półce.
+Aby jej dosięgnąć, wykorzystujesz wcześniej podniesioną drabinę.
+Stawiasz drabinę obok regału.
+Po wejściu na nią udaje ci się sięgnąć rękojeść.
+
+Z tego miejsca możesz przejść do: 
+-> szafka
+-> kowal
+-> kowadło
+
+Przedmioty w tym miejscu: 
+-> drabina
+
+true.
+
+?- idź(kowal).
+Rycerz: Znalazłem rękojeść, której szukałeś.
+Kowal: Znakomicie! Wiedziałem, że ci się uda.
+Kowal: Widzisz, na startośc tak już jest. Zostawiasz gdzieś rzeczy, 
+       i później sam zapominasz gdzie to się podziało. Bardzo ci dziękuję.
+Rycerz: Żaden problem.
+Kowal: Tak jak obiecywałem, przekazuję ci mój stary miecz.
+
+** nowy przedmiot w ekwipunku: stary_miecz **
+
+Rycerz: Bardzo ci dziękuję, z pewnością będzie mi dobrze służył.
+Rycerz: Mam do ciebie jeszcze jedną sprawę. Czy dostanę tutaj też nową zbroję?
+Kowal: Oczywiście, mam gotowych kilka kompletów. Właściwie, to mam jeszcze jedną rzecz,
+       z którą nie jestem w stanie sobie poradzić. Dotarło do mnie pismo, lecz nic
+       z niego nie rozumiem. Wygląda to na zlepek losowych znaków. Może ty coś
+       z tego odczytasz...
+
+----------------------------------------------------------------------------------
+ŚCIŚLE TAJNE
+-.. .-. --- --. .. / -.- --- .-- .- .-.. ..- .-.-.- /
+... -.- .-..- .- -.. .- -- / -.- --- .-.. . .--- -. . / -....- --.. .- -- ---. .-- .. . -. .. . -....- .-.-.- /
+- -.-- -- / .-. .- --.. . -- / .--. --- - .-. --.. . -... ..- .--- ..-.. / -.. .. .- -- . -. - --- .-- .-.- /
+-- --- - -.-- -.- ..-.. / .. / --.. .-..- --- - -.-- / -- .. . -.-. --.. .-.-.- /
+-.. --- --. .- -.. .- -- -.-- / ... .. ..-.. / .--- .- -.- / --.. .-- -.-- -.- .-.. . .-.-.- /
+- .-- ---. .--- / --. .-.-.-
+----------------------------------------------------------------------------------
+
+-- gdy uporasz się z zagadką, przebywając u kowala wpisz w terminal frazę 'rozwiązanie_SŁOWO KLUCZ.' --
+
+Z tego miejsca możesz przejść do: 
+-> przedzamcze
+-> lada
+-> składzik
+-> kowadło
+-> regały
+-> szafka
+
+
+true.
+
+?- rozwiązanie_ZAMÓWIENIE.
+Rycerz: Przetłumaczyłem otrzymaną wiadomość, wszystko spisałem na dole pisma.
+Rycerz: Chodzi o jakieś zamówienie.
+Kowal: Ach, no tak, tak!
+Kowal: Dziękuję za twój wysiłek. Jendak zanim dam ci zbroję, 
+       musisz mi jeszcze obiecać, że nikomu nie powiesz o treści tego pisma...
+       To dla mnie bardzo ważne.
+Rycerz: Obiecuję. Słowo rycerza.
+Kowal: Wspaniale. Jeszcze raz dziękuję ci za wszystko. Oto twoja zbroja.
+
+** nowy przedmiot w ekwipunku: zbroja **
+
+Rycerz: Dziękuję kowalu, interesy z tobą to przyjemność.
+true.
+
+?- spójrz.
+Jesteś u kowala.
+
+Z tego miejsca możesz przejść do: 
+-> przedzamcze
+-> lada
+-> składzik
+-> kowadło
+-> regały
+-> szafka
+
+
+true.
+
+?- idź(szafka).
+Podchodzisz do szafki w rogu pomieszczenia.
+Otwierasz drzwiczki. W środku znajdujesz kilka rzeczy.
+
+Z tego miejsca możesz przejść do: 
+-> lada
+-> kowal
+-> regały
+
+Przedmioty w tym miejscu: 
+-> rękawice
+-> ścierka
+-> złota_moneta
+-> mlotek
+
+true.
+
+?- podnieś(złota_moneta).
+Kowal bacznie pilnuje, co robisz przy jego szafce.
+Aby podebrać jego złotą monetę, musisz wykazać się ogromnym
+sprytem i odrobiną szczęścia.
+Wpisz 'zagraj.', aby podjąć próbę.
+true.
+
+?- zagraj.
+Gdy naciśniesz enter, gra się rozpocznie.
+W losowym momencie na ekranie pojawi się napis STOP!.
+Musisz wówczas jak najszybciej kliknąć enter.
+Jeśli twój czas reakcji będzie poniżej 0.3 sekundy,
+uda ci się podnieść złotą monetę. Powodzenia!
+
+START
+
+STOP!
+Twoj wynik: 0.3161311149597168
+Porażka, może uda się następnym razem!
+
+true.
+
+?- zagraj.
+Gdy naciśniesz enter, gra się rozpocznie.
+W losowym momencie na ekranie pojawi się napis STOP!.
+Musisz wówczas jak najszybciej kliknąć enter.
+Jeśli twój czas reakcji będzie poniżej 0.3 sekundy,
+uda ci się podnieść złotą monetę. Powodzenia!
+
+START
+
+STOP!
+Twoj wynik: 0.42865991592407227
+Porażka, może uda się następnym razem!
+
+true.
+
+?- zagraj.
+Gdy naciśniesz enter, gra się rozpocznie.
+W losowym momencie na ekranie pojawi się napis STOP!.
+Musisz wówczas jak najszybciej kliknąć enter.
+Jeśli twój czas reakcji będzie poniżej 0.3 sekundy,
+uda ci się podnieść złotą monetę. Powodzenia!
+
+START
+
+STOP!
+Twoj wynik: 0.29647135734558105
+Gratulacje, udało ci się!
+
+true.
+
+?- spójrz.
+Podchodzisz do szafki w rogu pomieszczenia.
+Otwierasz drzwiczki. W środku znajdujesz kilka rzeczy.
+
+Z tego miejsca możesz przejść do: 
+-> lada
+-> kowal
+-> regały
+
+Przedmioty w tym miejscu: 
+-> rękawice
+-> ścierka
+-> mlotek
+
+true.
+
+?- idź(lada).
+Spoglądasz pod ladę, lecz nie zauważasz tu nic ciekawego.
+
+Z tego miejsca możesz przejść do: 
+-> składzik
+-> kowal
+-> szafka
+
+
+true.
+
+?- idź(kowal).
+Jesteś u kowala.
+
+Z tego miejsca możesz przejść do: 
+-> przedzamcze
+-> lada
+-> składzik
+-> kowadło
+-> regały
+-> szafka
+
+
+true.
+
+?- idź(przedzamcze).
+Jesteś w: przedzamcze
+
+Z tego miejsca możesz przejść do: 
+-> brama_zamkowa
+-> kowal
+-> stajnia
+-> droga_do_wroga
+
+
+true.
+
+?- idź(droga_do_wroga).
+Jesteś w drodze do wroga.
+Jedziesz spokojnie na koniu, aż nagle zauważasz w oddali 3 osoby.
+Blokują ci drogę, jesteś zmuszomny do konfrontacji.
+
+Bandzior1: Hola hola, dokąd to.
+Bandzior2: Myślałeś, że przejedziesz sobie tędy bezproblemowo?
+           Grubo się myliłeś.
+Bandzior3: Tylko nie próbuj żadnych sztuczek!
+
+-- Bandzior3 wyciąga włócznię --
+
+Rycerz: Witajcie panowie, nie szukam żadnych problemów!
+        Na pewno jakoś się dogadamy.
+Bandzior1: Wyskakuj lepiej ze swoich kosztowności.
+
+-- Bandzior z włócznią zbliża się do ciebie --
+
+Rycerz: Spokojnie, spokojnie!
+
+Z wartościowych rzeczy posiadasz jedynie złotą monetę,
+być może uda ci się przy jej pomocy wydostać z tarapatów...
+
+Czy chcesz oddać bandziorom złotą monetę? (t./n.)
+|: n.
+
+Rycerz: Po moim trupie, niczego wam nie oddam!
+
+-- wyciągasz miecz i rozpoczynasz walkę z bandziorami --
+
+Aby pokonać bandziorów, potrzebne są szybkie i zwinne ruchy.
+Kliknij enter, a następnie w ciągu maksymalnie 10 sekund klikaj na zmianę 'a' i 'd' najszybciej jak potrafisz.
+Przed upływem 10 sekund musisz zatwierdzić swój rezultat stawiając kropkę i klikając enter.
+Potrzebujesz minimum 85 kliknięć, aby wygrać walkę. Powodzenia!
+START
+
+|: adadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadad.
+Twoj czas: 9.366261959075928
+Twoj wynik: 82
+
+Porażka, spróbuj ponownie!
+
+Aby pokonać bandziorów, potrzebne są szybkie i zwinne ruchy.
+Kliknij enter, a następnie w ciągu maksymalnie 10 sekund klikaj na zmianę 'a' i 'd' najszybciej jak potrafisz.
+Przed upływem 10 sekund musisz zatwierdzić swój rezultat stawiając kropkę i klikając enter.
+Potrzebujesz minimum 85 kliknięć, aby wygrać walkę. Powodzenia!
+START
+
+|: adadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadadada.
+Twoj czas: 9.7564631843566895
+Twoj wynik: 95
+
+Gratulacje, udało ci się!
+
+Pokonałeś wszystkich bandziorów, nie będą więcej ci przeszkadzać.
+Możesz kontynuować swoją podróż do zamku wroga.
+
+Z tego miejsca możesz przejść do: 
+-> przedzamcze
+-> brama_wroga
+-> mury_zamku_wroga
+
+
+true.
+
+?- idź(mury_zamku_wroga).
+Dostrzegasz możliwość dostania się do środka.
+Żołnierzom patrolującym mury zajmuje około 10 minut zrobienie okrążenia.
+Jeśli wykażesz się odpowiednią zwinnością oraz szybkością,
+Powinno udać ci się wspiąć na mury nie zauważonym.
+
+Aby przejść dalej musisz wykazać się dobrym wyczuciem czasu.
+Wpisz 'zagraj' aby rozpocząć grę.
+
+Z tego miejsca możesz przejść do: 
+-> brama_wroga
+-> droga_do_wroga
+
+
+true.
+
+?- zagraj.
+Gdy naciśniesz enter czas zacznie się odmierzać,
+naciśnij go po raz kolejny po upływie 10 sekund, aby wygrać.
+Możesz pomylić się o sekundę
+
+start
+stop
+Twoj wynik: 11.423678636550903
+Porażka, spróbuj jeszcze raz!
+
+true.
+
+?- zagraj.
+Gdy naciśniesz enter czas zacznie się odmierzać,
+naciśnij go po raz kolejny po upływie 10 sekund, aby wygrać.
+Możesz pomylić się o sekundę
+
+start
+stop
+Twoj wynik: 10.074576139450073
+Gratulacje, wygrałeś!
+
+Udało ci się dostać do środka zamku, w którym uwięziona jest księżniczka.
+Twoim kolejnym zadaniem jest znalezienie jej.
+
+Z tego miejsca możesz przejść do: 
+-> wartownia
+-> wieza_zamkowa
+-> lochy
+
+
+true.
+
+?- idź(lochy).
+Schodzisz do lochów.
+Masz szczęście, żołnierz który pilnuje lochu śpi na warcie.
+Patrzysz kto znajduje się w celach, natomiast nigdzie nie ma księżniczki.
+Nawet tak zły król, jak władca tego zamku nie wtrąciłby księżniczki do lochów.
+
+Z tego miejsca możesz przejść do: 
+-> korytarz_wroga
+
+
+true.
+
+?- idź(korytarz_wroga).
+Udało ci się dostać do środka zamku, w którym uwięziona jest księżniczka.
+Twoim kolejnym zadaniem jest znalezienie jej.
+
+Z tego miejsca możesz przejść do: 
+-> wartownia
+-> wieza_zamkowa
+-> lochy
+
+
+true.
+
+?- idź(wieza_zamkowa).
+Po długiej wspinaczce docierasz na szczyt wieży zamkowej.
+Dostrzegasz drzwi.
+
+Z tego miejsca możesz przejść do: 
+-> korytarz_wroga
+-> drzwi
+
+
+true.
+
+?- idź(drzwi).
+Próbujesz otworzyć drzwi, niestety są zamknięte.
+Musisz znaleźć klucz.
+
+Z tego miejsca możesz przejść do: 
+-> wieza_zamkowa
+
+
+true.
+
+?- idź(wieza_zamkowa).
+Po długiej wspinaczce docierasz na szczyt wieży zamkowej.
+Dostrzegasz drzwi.
+
+Z tego miejsca możesz przejść do: 
+-> korytarz_wroga
+-> drzwi
+
+
+true.
+
+?- idź(korytarz_wroga).
+Udało ci się dostać do środka zamku, w którym uwięziona jest księżniczka.
+Twoim kolejnym zadaniem jest znalezienie jej.
+
+Z tego miejsca możesz przejść do: 
+-> wartownia
+-> wieza_zamkowa
+-> lochy
+
+
+true.
+
+?- idź(wartownia).
+Po wejściu do wartowni dostrzegasz żołnierza z pękiem kluczy przy pasie.
+Niestety on także ciebie zauwarzył i zaczyna wyciągać swój miecz.
+Pokonaj go aby zdobyc klucze.
+Ta mini gra sprawdzi twoją zręczność, a także prędkość.
+Wpisz 'zagraj', aby rozpocząć grę.
+
+Z tego miejsca możesz przejść do: 
+-> korytarz_wroga
+
+
+true.
+
+?- zagraj.
+Gdy naciśniesz enter zostanie wygenerowany losowy napis o długości 30 znaków,
+a czas zacznie się odmierzać,
+twoim zadaniem jest przepisanie tego wyrazu oraz naciśnięcie klawisza enter.
+Masz na to 25 sekund. Powodzenia!
+
+   SoDsvGZHTfzaxUcJMOxiwRmCrxgqeW
+|: SoDsvGZHTfzaxUcJMOxiwRmCrxgqeW
+Gratulacje, wygrałeś!
+
+Na ziemi leży martwy wartownik
+A przy jego pasie wisi przypięty pęk kluczy.
+Wpisz 'podnieś(klucz)', aby je podnieść.
+
+Z tego miejsca możesz przejść do: 
+-> korytarz_wroga
+
+Przedmioty w tym miejscu: 
+-> klucz
+
+true.
+
+?- podnieś(klucz).
+OK.
+true.
+
+?- spójrz.
+Na ziemi leży martwy wartownik
+Wykazałeś się dużymi umiejętnościami pokonując go.
+
+Z tego miejsca możesz przejść do: 
+-> korytarz_wroga
+
+
+true.
+
+?- idź(korytarz_wroga).
+Udało ci się dostać do środka zamku, w którym uwięziona jest księżniczka.
+Twoim kolejnym zadaniem jest znalezienie jej.
+
+Z tego miejsca możesz przejść do: 
+-> wartownia
+-> wieza_zamkowa
+-> lochy
+
+
+true.
+
+?- idź(wieza_zamkowa).
+Po długiej wspinaczce docierasz na szczyt wieży zamkowej.
+Dostrzegasz drzwi.
+
+Z tego miejsca możesz przejść do: 
+-> korytarz_wroga
+-> drzwi
+
+
+true.
+
+?- idź(drzwi).
+Próbujesz otworzyć drzwi kluczem zabranym wartownikowi,
+całe szczęście, klucz pasuje, udaje ci się otworzyć drzwi.
+Na łóżku w ciemnym pomieszczeniu dostrzegasz księżniczkę.
+Gratulacje wygrałeś!
+
+
+         .* *.               `o`o`
+         *. .*              o`o`o`o      ^,^,^
+           * \               `o`o`     ^,^,^,^,^
+              \     ***        |       ^,^,^,^,^
+               \   *****       |        /^,^,^
+                \   ***        |       /
+    ~@~*~@~      \   \         |      /
+  ~*~@~*~@~*~     \   \        |     /
+  ~*~@smd@~*~      \   \       |    /     #$#$#        .`'.;.
+  ~*~@~*~@~*~       \   \      |   /     #$#$#$#   00  .`,.',
+    ~@~*~@~ \        \   \     |  /      /#$#$#   /|||  `.,'
+_____________\________\___\____|_/______/_________|\/\___||______
+
+Koniec gry. Wprowadź komendę "halt.", aby zakończyć.
+
+Z tego miejsca możesz przejść do: 
+-> wieza_zamkowa
+
+
+true.
+
+?- halt.
+ubuntu@primary:~/Home/PARP/PARP2/parp$ 
